@@ -1,12 +1,10 @@
 package com.example.clientservice;
 
-import com.example.clientservice.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.time.LocalDate;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class ClientserviceApplication {
@@ -14,6 +12,11 @@ public class ClientserviceApplication {
 
 	//@Autowired
 	//ClientService clientService;
+
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
+	}
 
 	public static void main(String[] args) {
 
